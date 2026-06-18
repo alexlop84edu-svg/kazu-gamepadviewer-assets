@@ -1,0 +1,410 @@
+/* ==========================================================
+   KAZU KZ - Xbox One GamePad Viewer Skin
+   Estilo: Xbox One + dark graffiti + neon Kazu/KZ LIGHT
+   Fondo: PNG con transparencia; conserva grafitis/manchas y elimina el negro.
+   Uso: https://gamepadviewer.com/?p=1&css=URL_RAW_DE_ESTE_CSS
+   ========================================================== */
+
+html, body {
+  background: transparent !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+.controller.custom {
+  width: 1200px;
+  height: 675px;
+  position: relative;
+  background: url("https://raw.githubusercontent.com/alexlop84edu-svg/kazu-gamepadviewer-assets/main/kazu_xbox_one_controller_transparent_LIGHT.webp") center center / 100% 100% no-repeat !important;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  filter:
+    drop-shadow(0 0 18px rgba(0, 220, 235, .30))
+    drop-shadow(0 0 20px rgba(255, 42, 42, .22))
+    drop-shadow(0 0 34px rgba(255, 220, 40, .14));
+  transform-origin: center center;
+}
+
+.controller.custom::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at 23% 62%, rgba(0, 220, 235, .18), transparent 18%),
+    radial-gradient(circle at 78% 30%, rgba(255, 50, 45, .18), transparent 18%),
+    radial-gradient(circle at 50% 48%, rgba(255, 220, 45, .11), transparent 22%);
+  mix-blend-mode: screen;
+  opacity: .55;
+}
+
+.controller.custom::after {
+  content: "KZ";
+  position: absolute;
+  left: 585px;
+  top: 118px;
+  transform: translateX(-50%) rotate(-2deg);
+  color: rgba(255, 220, 45, .10);
+  font-size: 140px;
+  font-weight: 900;
+  letter-spacing: -8px;
+  text-shadow:
+    4px 3px 0 rgba(0, 220, 235, .11),
+    -4px 2px 0 rgba(255, 35, 35, .11),
+    0 0 25px rgba(255, 220, 45, .13);
+  pointer-events: none;
+}
+
+.custom.disconnected {
+  filter: grayscale(.7) drop-shadow(0 0 20px rgba(255, 40, 40, .45));
+  opacity: .65;
+}
+.custom.disconnected div { display: none !important; }
+.custom.disconnected::after {
+  content: "KZ · MANDO DESCONECTADO";
+  left: 50%;
+  top: 312px;
+  transform: translate(-50%, -50%) rotate(-3deg);
+  color: #ffdc32;
+  font-size: 58px;
+  letter-spacing: 1px;
+  text-shadow:
+    4px 3px 0 rgba(0,220,235,.55),
+    -4px 2px 0 rgba(255,40,40,.55),
+    0 0 26px rgba(255,220,45,.55);
+}
+
+/* ---------- Gatillos y bumpers Xbox One ---------- */
+.custom .triggers {
+  position: absolute;
+  width: 780px;
+  height: 82px;
+  left: 205px;
+  top: 0;
+}
+.custom .trigger {
+  width: 155px;
+  height: 76px;
+  border-radius: 42px 42px 24px 24px;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(255,255,255,.22), transparent 28%),
+    linear-gradient(180deg, rgba(38,40,48,.90), rgba(8,9,13,.96));
+  border: 3px solid rgba(245,245,230,.18);
+  box-shadow:
+    inset 0 -14px 24px rgba(0,0,0,.58),
+    0 0 16px rgba(0,220,235,.15);
+  opacity: .22;
+}
+.custom .trigger.left { float: left; }
+.custom .trigger.right { float: right; }
+.custom .trigger.left::after { content: "LT"; }
+.custom .trigger.right::after { content: "RT"; }
+.custom .trigger::after {
+  display: block;
+  line-height: 74px;
+  text-align: center;
+  color: #ffdc32;
+  font-weight: 900;
+  font-size: 24px;
+  text-shadow: 0 0 12px rgba(255,220,45,.9);
+}
+.custom .trigger.pressed,
+.custom .trigger[style*="opacity: 1"],
+.custom .trigger[style*="opacity:1"] {
+  opacity: 1 !important;
+  transform: translateY(5px);
+  border-color: rgba(255,220,45,.95);
+  background: linear-gradient(180deg, #ffe75d, #e33b36);
+  box-shadow:
+    0 0 28px rgba(255,220,45,.60),
+    0 0 34px rgba(255,40,40,.40),
+    inset 0 0 18px rgba(255,255,255,.28);
+}
+
+.custom .bumpers {
+  position: absolute;
+  width: 780px;
+  height: 54px;
+  left: 205px;
+  top: 72px;
+}
+.custom .bumper {
+  width: 178px;
+  height: 48px;
+  border-radius: 25px;
+  background: linear-gradient(180deg, rgba(33,35,43,.88), rgba(9,10,14,.96));
+  border: 3px solid rgba(255,255,255,.14);
+  box-shadow: inset 0 -11px 18px rgba(0,0,0,.55), 0 0 18px rgba(0,220,235,.14);
+  opacity: .78;
+}
+.custom .bumper.left { float: left; border-color: rgba(0,220,235,.42); }
+.custom .bumper.right { float: right; border-color: rgba(255,50,55,.42); }
+.custom .bumper.left::after { content: "LB"; color: #00dcec; }
+.custom .bumper.right::after { content: "RB"; color: #ff3f3f; }
+.custom .bumper::after {
+  display:block;
+  text-align:center;
+  line-height:46px;
+  font-size:23px;
+  font-weight:900;
+  text-shadow:0 0 14px currentColor;
+}
+.custom .bumper.pressed {
+  transform: translateY(5px);
+  opacity: 1;
+  background: #ffdc32;
+  border-color: #fff1a0;
+  box-shadow: 0 0 30px rgba(255,220,45,.75), inset 0 0 18px rgba(255,255,255,.35);
+}
+.custom .bumper.pressed::after { color: #111217; text-shadow: none; }
+
+/* ---------- Select / Start / Xbox button ---------- */
+.custom .arrows {
+  position: absolute;
+  width: 260px;
+  height: 44px;
+  top: 212px;
+  left: 470px;
+}
+.custom .back,
+.custom .start {
+  position: absolute;
+  top: 0;
+  width: 48px;
+  height: 42px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 38% 28%, rgba(255,255,255,.25), transparent 26%),
+    linear-gradient(180deg,#242630,#0d0e12);
+  border: 3px solid rgba(255,255,255,.18);
+  box-shadow: 0 0 14px rgba(0,220,235,.18), inset 0 -8px 14px rgba(0,0,0,.6);
+  opacity: .55;
+}
+.custom .back { left: 0; }
+.custom .start { right: 0; }
+.custom .back::after { content: "▣"; }
+.custom .start::after { content: "☰"; }
+.custom .back::after,
+.custom .start::after {
+  display:block;
+  line-height:39px;
+  text-align:center;
+  color:#f4f4e8;
+  font-size:22px;
+  font-weight:900;
+}
+.custom .back.pressed,
+.custom .start.pressed {
+  opacity: 1;
+  transform: scale(.92);
+  background: #ffdc32;
+  box-shadow: 0 0 24px rgba(255,220,45,.75);
+}
+.custom .back.pressed::after,
+.custom .start.pressed::after { color:#111217; }
+
+/* Botón Xbox/Home: algunas versiones lo llaman .meta */
+.custom .meta {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 550px;
+  top: 107px;
+  border-radius: 50%;
+  background: rgba(255,220,45,.03);
+  border: 2px solid rgba(255,220,45,.20);
+  box-shadow: 0 0 18px rgba(255,220,45,.12);
+  opacity: .22;
+}
+.custom .meta.pressed {
+  opacity: 1;
+  background: rgba(255,220,45,.25);
+  box-shadow: 0 0 35px rgba(255,220,45,.75), 0 0 35px rgba(0,220,235,.35);
+}
+
+/* ---------- ABXY Xbox One ---------- */
+.custom .abxy {
+  position: absolute;
+  width: 205px;
+  height: 205px;
+  top: 152px;
+  left: 760px;
+}
+.custom .button {
+  position: absolute;
+  width: 59px;
+  height: 59px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 36% 25%, rgba(255,255,255,.25), transparent 26%),
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,.55), rgba(0,0,0,.96));
+  border: 3px solid currentColor;
+  box-shadow:
+    inset 0 -10px 16px rgba(0,0,0,.72),
+    0 0 12px rgba(255,255,255,.10);
+  opacity: .35;
+}
+.custom .button::after {
+  position:absolute;
+  inset:0;
+  line-height:55px;
+  text-align:center;
+  font-size:30px;
+  font-weight:900;
+  text-shadow:0 0 14px currentColor;
+}
+.custom .a { left: 72px; top: 134px; color: #ffdc32; }
+.custom .b { left: 138px; top: 67px; color: #ff3d35; }
+.custom .x { left: 4px; top: 67px; color: #00dcec; }
+.custom .y { left: 72px; top: 0; color: #ffdc32; }
+.custom .a::after { content:"A"; }
+.custom .b::after { content:"B"; }
+.custom .x::after { content:"X"; }
+.custom .y::after { content:"Y"; }
+.custom .button.pressed {
+  opacity: 1;
+  transform: translateY(5px) scale(.94);
+  background: currentColor;
+  box-shadow:
+    0 0 28px currentColor,
+    0 0 42px currentColor,
+    inset 0 0 20px rgba(255,255,255,.40);
+}
+.custom .button.pressed::after {
+  color: #111217;
+  text-shadow: none;
+}
+
+/* ---------- Sticks Xbox One ---------- */
+.custom .sticks {
+  position: absolute;
+  width: 500px;
+  height: 280px;
+  top: 170px;
+  left: 295px;
+}
+.custom .stick {
+  position: absolute;
+  width: 102px;
+  height: 102px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.14) 0 16%, transparent 18%),
+    repeating-radial-gradient(circle, rgba(255,255,255,.10) 0 2px, transparent 2px 8px),
+    linear-gradient(180deg, rgba(35,37,45,.92), rgba(8,9,13,.98));
+  border: 5px solid rgba(0,220,235,.42);
+  box-shadow:
+    inset 0 -18px 25px rgba(0,0,0,.68),
+    0 0 22px rgba(0,220,235,.25);
+  opacity: .33;
+}
+.custom .stick.left { left: 0; top: 0; }
+.custom .stick.right {
+  left: 375px;
+  top: 158px;
+  border-color: rgba(255,220,45,.50);
+  box-shadow: inset 0 -18px 25px rgba(0,0,0,.68), 0 0 22px rgba(255,220,45,.22);
+}
+.custom .stick.pressed {
+  opacity: 1;
+  filter: brightness(1.2);
+  box-shadow:
+    0 0 30px rgba(0,220,235,.65),
+    inset 0 0 18px rgba(255,255,255,.22);
+}
+.custom .stick.right.pressed {
+  box-shadow:
+    0 0 30px rgba(255,220,45,.65),
+    inset 0 0 18px rgba(255,255,255,.22);
+}
+
+/* ---------- D-Pad ---------- */
+.custom .dpad {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 292px;
+  left: 415px;
+}
+.custom .face {
+  position: absolute;
+  background: linear-gradient(180deg, rgba(32,34,42,.86), rgba(8,9,12,.98));
+  border: 3px solid rgba(255,220,45,.32);
+  box-shadow: inset 0 -9px 15px rgba(0,0,0,.65), 0 0 12px rgba(255,220,45,.12);
+  opacity: .32;
+}
+.custom .face.up,
+.custom .face.down {
+  width: 45px;
+  height: 67px;
+  left: 52px;
+  border-radius: 14px;
+}
+.custom .face.left,
+.custom .face.right {
+  width: 67px;
+  height: 45px;
+  top: 52px;
+  border-radius: 14px;
+}
+.custom .face.up { top: 0; }
+.custom .face.down { bottom: 0; }
+.custom .face.left { left: 0; }
+.custom .face.right { right: 0; }
+.custom .face::after {
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+  width:0;
+  height:0;
+  border-style:solid;
+}
+.custom .face.up::after { border-width:0 9px 17px 9px; border-color:transparent transparent #ffdc32 transparent; }
+.custom .face.down::after { border-width:17px 9px 0 9px; border-color:#ffdc32 transparent transparent transparent; }
+.custom .face.left::after { border-width:9px 17px 9px 0; border-color:transparent #ffdc32 transparent transparent; }
+.custom .face.right::after { border-width:9px 0 9px 17px; border-color:transparent transparent transparent #ffdc32; }
+.custom .face.pressed {
+  opacity: 1;
+  transform: translateY(4px);
+  background: #00dcec;
+  border-color: #9ff9ff;
+  box-shadow: 0 0 24px rgba(0,220,235,.8), inset 0 0 16px rgba(255,255,255,.30);
+}
+.custom .face.pressed::after { filter: brightness(.05); }
+
+/* ---------- Indicador jugador ---------- */
+.custom .quadrant {
+  position: absolute;
+  width: 92px;
+  height: 16px;
+  left: 554px;
+  top: 304px;
+  border-radius: 12px;
+  background: linear-gradient(90deg,#ff3d35 0 32%,#ffdc32 32% 66%,#00dcec 66% 100%);
+  box-shadow:
+    0 0 16px rgba(255,220,45,.35),
+    0 0 22px rgba(0,220,235,.24);
+  opacity: .75;
+}
+.custom .p0 { opacity: .95; }
+.custom .p1 { filter: hue-rotate(65deg); }
+.custom .p2 { filter: hue-rotate(135deg); }
+.custom .p3 { filter: hue-rotate(210deg); }
+
+/* Elementos que no usa el mando Xbox One */
+.custom .touchpad,
+.custom .fstick,
+.custom .trigger-button {
+  display: none !important;
+}
+
+/* Pequeña animación artesanal del brillo, suave para stream */
+@keyframes kazuPulse {
+  0%, 100% { filter: drop-shadow(0 0 16px rgba(0,220,235,.28)) drop-shadow(0 0 20px rgba(255,40,40,.18)); }
+  50% { filter: drop-shadow(0 0 22px rgba(0,220,235,.38)) drop-shadow(0 0 28px rgba(255,220,45,.20)); }
+}
+.controller.custom {
+  animation: kazuPulse 3.8s ease-in-out infinite;
+}
