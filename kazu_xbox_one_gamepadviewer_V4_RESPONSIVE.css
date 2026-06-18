@@ -1,0 +1,205 @@
+/* ==========================================================
+   KAZU KZ - Xbox One GamePad Viewer V4 RESPONSIVE MECHANICAL
+   - Mando entero visible en paneles pequeños
+   - Piezas reales del diseño
+   - Recortes más discretos
+   ========================================================== */
+
+html, body {
+  margin: 0 !important;
+  background: transparent !important;
+  overflow: hidden !important;
+}
+
+.controller.custom,
+.custom.controller {
+  position: relative;
+  width: min(100%, 1200px) !important;
+  max-width: 1200px !important;
+  aspect-ratio: 1200 / 675;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 auto !important;
+  overflow: visible !important;
+  box-sizing: border-box;
+  background: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/controller_full.webp) center center / contain no-repeat !important;
+  filter:
+    drop-shadow(0 0 10px rgba(0,215,234,.20))
+    drop-shadow(0 0 12px rgba(255,61,53,.14));
+}
+
+.custom *, .custom *::before, .custom *::after {
+  box-sizing: border-box;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: contain !important;
+}
+
+.custom .touchpad,
+.custom .fstick,
+.custom .trigger-button {
+  display: none !important;
+}
+
+/* fullscreen layer boxes */
+.custom .sticks,
+.custom .abxy,
+.custom .arrows,
+.custom .dpad,
+.custom .bumpers,
+.custom .triggers {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  pointer-events: none;
+}
+
+/* reset generic GPV visuals */
+.custom .button,
+.custom .stick,
+.custom .face,
+.custom .trigger,
+.custom .bumper,
+.custom .back,
+.custom .start,
+.custom .meta {
+  position: absolute;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  opacity: 1 !important;
+}
+
+/* IMPORTANT: don't override inline transforms from GPV sticks */
+.custom .stick::before, .custom .stick::after,
+.custom .button::after,
+.custom .face::after,
+.custom .bumper::after,
+.custom .trigger::after,
+.custom .back::after,
+.custom .start::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* ----- STICKS (real caps, move with actual stick movement) ----- */
+.custom .stick {
+  width: 7.3333%;
+  height: 13.037%;
+}
+.custom .stick.left,
+.custom .left.stick {
+  left: 19.25%;
+  top: 26.0741%;
+  background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/stick_left_cap.webp) !important;
+}
+.custom .stick.right,
+.custom .right.stick {
+  left: 54.9167%;
+  top: 53.4815%;
+  background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/stick_right_cap.webp) !important;
+}
+.custom .stick.pressed {
+  filter: brightness(.96);
+}
+
+/* ----- ABXY ----- */
+.custom .button {
+  width: 5.0%;
+  height: 8.8889%;
+  transition: transform .06s ease, filter .06s ease;
+}
+.custom .a { left: 69.9167%; top: 39.1111%; background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/a_face.webp) !important; }
+.custom .b { left: 74.4167%; top: 30.6667%; background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/b_face.webp) !important; }
+.custom .x { left: 65.3333%; top: 30.6667%; background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/x_face.webp) !important; }
+.custom .y { left: 69.9167%; top: 22.5185%; background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/y_face.webp) !important; }
+.custom .button.pressed {
+  transform: translateY(0.75%);
+  filter: brightness(.94);
+}
+
+/* ----- back / start / xbox ----- */
+.custom .back, .custom .start {
+  width: 3.5%;
+  height: 6.2222%;
+  transition: transform .06s ease, filter .06s ease;
+}
+.custom .back { left: 38.4167%; top: 30.3704%; background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/back_face.webp) !important; }
+.custom .start { left: 52.1667%; top: 30.3704%; background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/start_face.webp) !important; }
+.custom .meta {
+  left: 45.5833%;
+  top: 13.4815%;
+  width: 8.1667%;
+  height: 14.5185%;
+  background: transparent url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/xbox_face.webp) center center / contain no-repeat !important;
+  transition: transform .06s ease, filter .06s ease;
+}
+.custom .back.pressed,
+.custom .start.pressed,
+.custom .meta.pressed {
+  transform: translateY(0.7%);
+  filter: brightness(.95);
+}
+
+/* ----- dpad ----- */
+.custom .face {
+  transition: transform .06s ease, filter .06s ease;
+}
+.custom .face.up    { left: 35.5833%; top: 40.1481%; width: 3.8333%; height: 8.8889%; background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/d_up_face.webp) !important; }
+.custom .face.down  { left: 35.5833%; top: 56.1481%; width: 3.8333%; height: 8.8889%; background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/d_down_face.webp) !important; }
+.custom .face.left  { left: 30.5833%; top: 49.1852%; width: 5.0%; height: 6.8148%; background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/d_left_face.webp) !important; }
+.custom .face.right { left: 39.4167%; top: 49.1852%; width: 5.0%; height: 6.8148%; background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/d_right_face.webp) !important; }
+.custom .face.pressed {
+  transform: translateY(0.7%);
+  filter: brightness(.94);
+}
+
+/* ----- bumpers / triggers ----- */
+.custom .bumper, .custom .trigger {
+  transition: transform .06s ease, filter .06s ease;
+}
+.custom .bumper.left  { left: 16.0833%; top: 10.6667%; width: 15.6667%; height: 5.3333%; background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/lb_face.webp) !important; }
+.custom .bumper.right { left: 68.5833%; top: 10.6667%; width: 15.6667%; height: 5.3333%; background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/rb_face.webp) !important; }
+
+.custom .trigger.left  { left: 18.5833%; top: 2.2222%; width: 11.1667%; height: 7.4074%; background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/lt_face.webp) !important; }
+.custom .trigger.right { left: 70.6667%; top: 2.2222%; width: 11.1667%; height: 7.4074%; background-image: url(https://cdn.jsdelivr.net/gh/alexlop84edu-svg/kazu-gamepadviewer-assets@main/assets/rt_face.webp) !important; }
+
+.custom .bumper.pressed,
+.custom .trigger.pressed,
+.custom .trigger[style*="opacity: 1"],
+.custom .trigger[style*="opacity:1"] {
+  transform: translateY(0.8%);
+  filter: brightness(.95);
+}
+
+/* player indicator */
+.custom .quadrant {
+  position: absolute;
+  left: 47.3333%;
+  top: 34.8148%;
+  width: 5.0%;
+  height: 2.2222%;
+  border-radius: 999px;
+  background: linear-gradient(90deg,#ff3d35 0 33%, #ffd93c 33% 66%, #00d7ea 66% 100%);
+  box-shadow: 0 0 8px rgba(255,217,60,.12);
+  z-index: 10;
+}
+
+/* disconnected */
+.custom.disconnected {
+  opacity: .72;
+  filter: grayscale(.25);
+}
+.custom.disconnected::after {
+  content: "KZ · MANDO DESCONECTADO";
+  position: absolute;
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%);
+  color: rgba(255,217,60,.92);
+  font: 900 clamp(10px, 2vw, 22px) Arial, sans-serif;
+  letter-spacing: .3px;
+}
